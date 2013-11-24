@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "multidata.h"
+#include "pte.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ void printdata(int datanum, int ndigit);
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	printdata(3, 3);
+	pte("000", "000", 2);
 
 	return 0;
 }
