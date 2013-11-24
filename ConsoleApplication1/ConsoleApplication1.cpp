@@ -4,7 +4,6 @@
 #include "stdafx.h"
 
 
-//test
 int _tmain(int argc, _TCHAR* argv[])
 {
 
