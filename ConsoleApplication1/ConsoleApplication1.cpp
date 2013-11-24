@@ -2,16 +2,29 @@
 //
 
 #include "stdafx.h"
+#include "multidata.h"
 
+using namespace std;
+
+void printdata(int datanum, int ndigit);
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-
-	int a;
-	printf_s("test");
-	scanf_s("%d", &a);
-	printf_s("okok:%d", a);
+	printdata(3, 3);
 
 	return 0;
 }
 
+void printdata(int datanum, int ndigit)
+{
+	list<string> testlist = makedata(datanum, ndigit);
+
+	cout << "test" << endl;
+
+	list<string>::iterator it = testlist.begin();
+	while (it != testlist.end())
+	{
+		cout << *it << endl;
+		++it;
+	}
+}

@@ -7,11 +7,15 @@
 
 #include "targetver.h"
 
-#include <list>
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+
+// add 
+#include <list>
 #include <tchar.h>
+#include <string>
+#include <iostream>
+
+using namespace std;
 
 
-
-// TODO: プログラムに必要な追加ヘッダーをここで参照してください。
