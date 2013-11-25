@@ -38,9 +38,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ConsoleApplication1.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="multidata.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -48,6 +45,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="pte.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="runpte.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

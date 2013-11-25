@@ -14,6 +14,7 @@
     <ProjectGuid>{E4BD36B4-4FE3-4A9B-BF8A-577446714332}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ConsoleApplication1</RootNamespace>
+    <ProjectName>PureTransferEntropy</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -87,7 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="changetype.cpp" />
-    <ClCompile Include="ConsoleApplication1.cpp" />
+    <ClCompile Include="runpte.cpp" />
     <ClCompile Include="multidata.cpp" />
     <ClCompile Include="pte.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -12,7 +12,6 @@ double pte(string x, string y, int ndigit)
 
 	if (lenx == leny) {
 		int lenxy = lenx;
-		cout << "test:";
 		//initial
 		int n3 = ndigit * ndigit * ndigit;
 		int n2 = ndigit * ndigit;
