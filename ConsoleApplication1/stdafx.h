@@ -15,6 +15,9 @@
 #include <tchar.h>
 #include <string>
 #include <iostream>
+#include <math.h>
+#include <time.h>
+#include <fstream>
 
 using namespace std;
 
