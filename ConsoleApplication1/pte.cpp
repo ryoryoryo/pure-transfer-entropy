@@ -158,10 +158,21 @@ double pte(string x, string y, int ndigit)
 			}
 		}
 
+		// free
+		delete[] mp3x;
+		delete[] mp3y;
+		delete[] mpxy;
+		delete[] mpyx;
+		delete[] mpx;
+		delete[] mpy;
+		delete[] px;
+		delete[] py;
+
+
 		cout << "y->x:" << xte;
 		cout << "x->y:" << yte;
 
-		return 0;
+		return xte;
 	}
 }
 
@@ -258,6 +269,16 @@ double pteXtoY(string x, string y, int ndigit)
 				}
 			}
 		}
+
+		// free
+		delete[] mp3x;
+		delete[] mp3y;
+		delete[] mpxy;
+		delete[] mpyx;
+		delete[] mpx;
+		delete[] mpy;
+		delete[] px;
+		delete[] py;
 
 
 		//cout << "x->y:" << yte;

@@ -24,6 +24,24 @@ list<string> makedata(int datanum, int patternnum)
 }
 
 
+string* makedata2(int datanum, int patternnum)
+{
+	using namespace std;
+	int datasize = 1;
+
+	for (int i = 0; i < datanum; i++) {
+		datasize = datasize * patternnum;
+	}
+
+	string *data = new string[datasize];
+	for (int i = 0; i < datasize; i++) {
+		data[i] = toNDigit(patternnum, i, datanum);
+	}
+
+	return data;
+}
+
+
 // n:n-digit value:value number:length of bit
 string toNDigit(int n, int value, int number)
 {
