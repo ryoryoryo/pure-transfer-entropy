@@ -10,20 +10,20 @@ using namespace std;
 
 void printdata(int datanum, int ndigit);
 
-int _tmain(int argc, _TCHAR* argv[])
+/*int _tmain(int argc, _TCHAR* argv[])
 {
 	// time
 	clock_t start, end;
 	start = clock();
 
 	int datanum = 7;
-	int patternnum = 3;
+	int patternnum = 4;
 	int countor = 0;
 	int tmpcountor = 0;
 	int filecountor = 0;
 
 	string result("");
-	/*
+	//comment start
 	list<string> data = makedata(datanum, patternnum);
 	
 	list<string>::iterator x = data.begin();
@@ -51,7 +51,8 @@ int _tmain(int argc, _TCHAR* argv[])
 			//cout << countor << "/" << data.size() * data.size() << endl;
 		}
 		++x;
-	}*/
+	}
+	// comment end
 
 	int datasize = 1;
 
@@ -71,7 +72,7 @@ int _tmain(int argc, _TCHAR* argv[])
 			tmpcountor++;
 			if (tmpcountor > 1000000) {
 				ofstream result_file;
-				result_file.open("B:\\workspace-c\\data\\pte\\length7pattern3\\result" + intToString(filecountor) + ".txt", ios::out);
+				result_file.open("B:\\workspace-c\\data\\pte\\length7pattern4\\result" + intToString(filecountor) + ".txt", ios::out);
 				result_file << result;
 				result_file.close();
 				filecountor++;
@@ -89,19 +90,19 @@ int _tmain(int argc, _TCHAR* argv[])
 	end = clock();
 	// time file open
 	ofstream time_file;
-	time_file.open("B:\\workspace-c\\data\\pte\\length7pattern3\\time.txt", ios::out);
+	time_file.open("B:\\workspace-c\\data\\pte\\length7pattern4\\time.txt", ios::out);
 	time_file << (double)(end - start) / CLOCKS_PER_SEC << "sec";
 	time_file.close();
 
 
 	// file open
 	ofstream result_file;
-	result_file.open("B:\\workspace-c\\data\\pte\\length7pattern3\\result" + intToString(filecountor) + ".txt", ios::out);
+	result_file.open("B:\\workspace-c\\data\\pte\\length7pattern4\\result" + intToString(filecountor) + ".txt", ios::out);
 	result_file << result;
 	result_file.close();
 
 	return 0;
-}
+}*/
 
 void printdata(int datanum, int ndigit)
 {

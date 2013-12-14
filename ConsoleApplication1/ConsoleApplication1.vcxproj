@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="changetype.cpp" />
+    <ClCompile Include="run1pte.cpp" />
     <ClCompile Include="runpte.cpp" />
     <ClCompile Include="multidata.cpp" />
     <ClCompile Include="pte.cpp" />
