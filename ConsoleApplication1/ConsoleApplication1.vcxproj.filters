@@ -36,6 +36,9 @@
     <ClInclude Include="tte.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="runrealdata.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -57,6 +60,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="tte.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="runrealdata.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

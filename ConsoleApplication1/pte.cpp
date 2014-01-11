@@ -169,8 +169,8 @@ double pte(string x, string y, int ndigit)
 		delete[] py;
 
 
-		cout << "y->x:" << xte;
-		cout << "x->y:" << yte;
+		cout << "y->x:" << xte << endl;
+		cout << "x->y:" << yte << endl;
 
 		return xte;
 	}

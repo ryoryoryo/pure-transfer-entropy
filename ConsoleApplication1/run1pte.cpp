@@ -4,52 +4,90 @@
 #include "tte.h"
 #include "changetype.h"
 
-#define DATA_NUM 17
-#define PATTERN_NUM 5
+#define DATA_NUM 10
+#define PATTERN_NUM 10
 
 using namespace std;
 
-
+/*
 int _tmain(int argc, _TCHAR* argv[])
 {
 // input
-string x = "112233441122334";
-string y = "000000000444444";
+string x = "22447824837714412718927686210540";
+string y = "08721272904023010010400042023258";
 
 // output
-cout << x + "\t" + y + "\t" + doubleToString(pteXtoY(x, y, PATTERN_NUM)) + "\n" << endl;
+cout << endl;
+cout << x + "\t" + y + "\t" + doubleToString(pte(x, y, PATTERN_NUM)) + "\n" << endl;
 
 return 0;
 }
+*/
 
-/*test
 int _tmain(int argc, _TCHAR* argv[])
 {
 	string result("");
 
-	string data[10] = {
-		"112233441122334",
-		"011223322112233",
-		"011222244112222",
-		"000022224444222",
-		"011113344114433",
-		"000000000444444",
-		"000022222222222",
-		"000000000000000",
-		"000022222222222",
-		"000000000444444",
-	};
+	string *data = readCsv("B:/transfer-entropy/artificial_experiment/ver1.0/TE_ver1_exp_ver14/60/3/exp_ver1463_network-time-series.csv", DATA_NUM);
 
-	for (int i = 0; i < 10; i++) {
+	/*string data[10] = {
+		"12344321123",
+		"01233332112",
+		"00000000000",
+		"00234432222",
+		"01134434111",
+		"01114444111",
+		"00111444411",
+		"00000000000",
+		"00023333222",
+		"00000044444",
+	};*/
+
+
+	for (int i = 0; i < DATA_NUM; i++) {
 		for (int j = 0; j < 10; j++) {
-			result.append(intToString(i) + "\t" + intToString(j) + "\t" + doubleToString(tteXtoY(data[i], data[j], PATTERN_NUM, 4)) + "\n");
+			if (i == 0 && j == 4) {
+				cout << endl;
+				cout << "stop" << endl;
+			}
+			result.append(intToString(i) + "\t" + intToString(j) + "\t" + doubleToString(pteXtoY(data[i], data[j], PATTERN_NUM)) + "\n");
 		}
 	}
 	// file open
 	ofstream result_file;
-	result_file.open("B:/transfer-entropy/artificial_experiment/ver1.0/TE_ver1_exp_ver11/result_TTE_4.txt", ios::out);
+	result_file.open("B:/transfer-entropy/artificial_experiment/ver1.0/TE_ver1_exp_ver14/60/3/exp_ver1463_result_TE.txt", ios::out);
+	cout << result;
 	result_file << result;
 	result_file.close();
 
 	return 0;
-	}*/
+}
+
+string* readCsv(string path, int datasize)
+{
+	ifstream ifs(path);
+	string *data = new string[datasize];
+
+	if (ifs.fail()){
+		// error
+		cerr << "failed." << endl;
+		exit(0);
+	}
+
+	string line;
+	string lineSum;
+	int p;
+	int index = 0;
+	while (getline(ifs, line)){
+		lineSum = "";
+		while ((p = line.find(",")) != line.npos){
+			lineSum = lineSum + line.substr(0, p);
+			line = line.substr(p + 1);
+		}
+		lineSum = lineSum + line.substr(0, p);
+		data[index] = lineSum;
+		index = index + 1;
+	}
+
+	return data;
+}
