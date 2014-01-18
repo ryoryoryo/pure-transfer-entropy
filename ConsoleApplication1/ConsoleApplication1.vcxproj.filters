@@ -71,7 +71,7 @@
     <ClCompile Include="runrealdata.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="runnoise.cpp">
+    <ClCompile Include="runnoisedata.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
