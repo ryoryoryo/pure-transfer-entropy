@@ -24,13 +24,15 @@ return 0;
 }
 */
 
+/*
 int _tmain(int argc, _TCHAR* argv[])
 {
 	string result("");
 
-	string *data = readCsv("B:/transfer-entropy/artificial_experiment/ver1.0/TE_ver1_exp_ver14/60/3/exp_ver1463_network-time-series.csv", DATA_NUM);
+	string *data = readCsv("B:/transfer-entropy/artificial_experiment/ver1.0/TE_ver1_exp_ver14/90/5/exp_ver1495_network-time-series.csv", DATA_NUM);
 
-	/*string data[10] = {
+	//comment
+	string data[10] = {
 		"12344321123",
 		"01233332112",
 		"00000000000",
@@ -41,7 +43,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		"00000000000",
 		"00023333222",
 		"00000044444",
-	};*/
+	};
 
 
 	for (int i = 0; i < DATA_NUM; i++) {
@@ -55,7 +57,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	// file open
 	ofstream result_file;
-	result_file.open("B:/transfer-entropy/artificial_experiment/ver1.0/TE_ver1_exp_ver14/60/3/exp_ver1463_result_TE.txt", ios::out);
+	result_file.open("B:/transfer-entropy/artificial_experiment/ver1.0/TE_ver1_exp_ver14/90/5/exp_ver1495_result_TE.txt", ios::out);
 	cout << result;
 	result_file << result;
 	result_file.close();
@@ -90,4 +92,4 @@ string* readCsv(string path, int datasize)
 	}
 
 	return data;
-}
+	}*/
