@@ -138,8 +138,8 @@ double tte(string x, string y, int ndigit, int type)
 		delete[] py;
 
 
-		cout << "y->x:" << xte;
-		cout << "x->y:" << yte;
+		//cout << "y->x:" << xte;
+		//cout << "x->y:" << yte;
 
 		return xte;
 	}
@@ -270,12 +270,12 @@ double tteXtoY(string x, string y, int ndigit, int type)
 							double nd = numerator / denominator;
 
 							if (nd != 0) {
-								cout << "index:" << index3 << endl;
-								cout << "numerator:" << numerator << " = " << "mp3x:" << index3 << " " << mp3y[index3] << " * py:" << index_y << " " << py[index_y] << endl;
-								cout << "index_yx:" << index_yx << endl;
-								cout << "denominator:" << denominator << " = " << "mpyx:" << index_yx << " " << mpyx[index_yx] << " * mpy:" << index_yy << " " << mpy[index_yy] << endl;
-								cout << "len:" << lenxy - 1 << endl;
-								cout << "ans:" << ((double)mp3y[index3] / (lenxy - 1)) * log10(nd) << endl;
+								//cout << "index:" << index3 << endl;
+								//cout << "numerator:" << numerator << " = " << "mp3x:" << index3 << " " << mp3y[index3] << " * py:" << index_y << " " << py[index_y] << endl;
+								//cout << "index_yx:" << index_yx << endl;
+								//cout << "denominator:" << denominator << " = " << "mpyx:" << index_yx << " " << mpyx[index_yx] << " * mpy:" << index_yy << " " << mpy[index_yy] << endl;
+								//cout << "len:" << lenxy - 1 << endl;
+								//cout << "ans:" << ((double)mp3y[index3] / (lenxy - 1)) * log10(nd) << endl;
 								yte = yte + ((double)mp3y[index3] / (lenxy - 1)) * log10(nd);
 							}
 						}
