@@ -302,3 +302,125 @@ double tteXtoY(string x, string y, int ndigit, int type)
 	return yte;
 
 }
+
+
+double tteXYZ(vector<string> contents, int ndigit, int type)
+{
+	//initial
+	int n3 = ndigit * ndigit * ndigit;
+	int n2 = ndigit * ndigit;
+	int n1 = ndigit;
+
+	int *mp3x = new int[n3];
+	for (int i = 0; i < n3; i++) {
+		mp3x[i] = 0;
+	}
+	int *mpxy = new int[n2];
+	for (int i = 0; i < n2; i++) {
+		mpxy[i] = 0;
+	}
+	int *mpx = new int[n2];
+	for (int i = 0; i < n2; i++) {
+		mpx[i] = 0;
+	}
+	int *px = new int[n1];
+	for (int i = 0; i < n1; i++) {
+		px[i] = 0;
+	}
+
+
+	// count number
+	int tmp = 0;
+	for (int i = 0; i < contents.size(); i++) {
+		// define 
+		string line = contents[i];
+		int xi = 0;
+		int yi = 0;
+		int zi = 0;
+		int p;
+		int count = 0;
+
+		// init xi,yi,zi
+		while ((p = line.find("\t")) != line.npos){
+			if (count == 0){
+				xi = stringToInt(line.substr(0, p));
+			}
+			else if (count == 1) {
+				yi = stringToInt(line.substr(0, p));
+				zi = stringToInt(line.substr(p + 1));
+				break;
+			}
+			else {
+				break;
+			}
+			line = line.substr(p + 1);
+			count = count + 1;
+		}
+		if (i == contents.size() - 1) {
+			mpxy[n1 * tmp + yi] = mpxy[n1 * tmp + yi] + 1;
+		}
+		else
+		{
+			mp3x[n2 * zi + n1 * xi + yi] = mp3x[n2 * zi + n1 * xi + yi] + 1;
+			mpx[n1 * zi + xi] = mpx[n1 * zi + xi] + 1;
+			mpxy[n1 * xi + yi] = mpxy[n1 * xi + yi] + 1;
+			px[xi] = px[xi] + 1;
+			if (i == contents.size() - 2) {
+				px[zi] = px[zi] + 1;
+				tmp = zi;
+			}
+		}
+	}
+
+	//check
+	for (int i = 0; i < n3; i++) {
+		cout << "mp3x" << i << ":";
+		cout << mp3x[i] << endl;
+	}
+	for (int i = 0; i < n2; i++) {
+		cout << "mpxy" << i << ":";
+		cout << mpxy[i] << endl;
+	}
+	for (int i = 0; i < n2; i++) {
+		cout << "mpx" << i << ":";
+		cout << mpx[i] << endl;
+	}
+	for (int i = 0; i < n1; i++) {
+		cout << "px" << i << ":";
+		cout << px[i] << endl;
+	}
+
+
+	//calcurate y->x
+	double xte = 0.0;
+	for (int i = 0; i < n1; i++) {
+		for (int j = 0; j < n1; j++) {
+			for (int k = 0; k < n1; k++) {
+				if (k == type && i == type) {// && j != type
+					int index3 = n2 * i + n1 * j + k;
+					int index_xx = n1 * i + j;
+					int index_xy = n1 * j + k;
+					int index_x = j;
+
+					if (mp3x[index3] != 0 && px[index_x] != 0 && mpxy[index_xy] != 0 && mpx[index_xx] != 0)
+					{
+						double numerator = (double)mp3x[index3] * (double)px[index_x];
+						double denominator = (double)mpxy[index_xy] * (double)mpx[index_xx];
+						double nd = numerator / denominator;
+						if (nd != 0) {
+							xte = xte + ((double)mp3x[index3] / (contents.size() - 1)) * log10(nd);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// free
+	delete[] mp3x;
+	delete[] mpxy;
+	delete[] mpx;
+	delete[] px;
+
+	return xte;
+}
