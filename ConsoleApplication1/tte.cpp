@@ -372,7 +372,7 @@ double tteXYZ(vector<string> contents, int ndigit, int type)
 		}
 	}
 
-	//check
+	/*//check
 	for (int i = 0; i < n3; i++) {
 		cout << "mp3x" << i << ":";
 		cout << mp3x[i] << endl;
@@ -388,7 +388,7 @@ double tteXYZ(vector<string> contents, int ndigit, int type)
 	for (int i = 0; i < n1; i++) {
 		cout << "px" << i << ":";
 		cout << px[i] << endl;
-	}
+	}*/
 
 
 	//calcurate y->x
