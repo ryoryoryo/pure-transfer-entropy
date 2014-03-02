@@ -10,9 +10,9 @@
 
 using namespace std;
 
-char inputDir[] = "B:\\transfer-entropy\\te\\real_experiment\\ver2.0\\ver2.0.3\\ver2.0.3.3\\time-series\\between-user-tweet-topics\\*";
+char inputDir[] = "B:\\transfer-entropy\\te\\real_experiment\\ver2.0\\ver2.0.3\\ver2.0.3.3.2\\time-series\\between-user-tweet-topics\\*";
 
-string outputDir = "B:/transfer-entropy/te/real_experiment/ver2.0/ver2.0.3/ver2.0.3.3/te-result/result/";
+string outputDir = "B:/transfer-entropy/te/real_experiment/ver2.0/ver2.0.3/ver2.0.3.3.2/te-result/result/";
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -55,9 +55,8 @@ int _tmain(int argc, _TCHAR* argv[])
 			vector<string> contents = readContentsXYZ(inputFilePath);
 
 			if (contents.size() > 0) {
-				resultTE.append(influencer + "\t" + receiver + "\t" + doubleToString(pteXYZ(contents, PATTERN_NUM)) + "\n");
 				for (int i = 0; i < PATTERN_NUM; i++) {
-					resultTTE[i].append(influencer + "\t" + receiver + "\t" + doubleToString(tteXYZ(contents, PATTERN_NUM, i)) + "\n");
+					resultTTE[i].append(influencer + "\t" + receiver + "\t" + doubleToString(tteMultiXYZ(contents, i)) + "\n");
 				}
 			}
 			else {
