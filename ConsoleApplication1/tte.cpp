@@ -547,49 +547,52 @@ double tteMultiXYZ(vector<string> contents, int type)
 				tmp = zi;
 			}
 		}
+		//cout << line << endl;
 	}
 
 	/*//check
 	for (int i = 0; i < n3; i++) {
-	cout << "mp3x" << i << ":";
-	cout << mp3x[i] << endl;
+		cout << "mp3x" << i << ":";
+		cout << mp3x[i] << endl;
 	}
 	for (int i = 0; i < n2; i++) {
-	cout << "mpxy" << i << ":";
-	cout << mpxy[i] << endl;
+		cout << "mpxy" << i << ":";
+		cout << mpxy[i] << endl;
 	}
 	for (int i = 0; i < n2; i++) {
-	cout << "mpx" << i << ":";
-	cout << mpx[i] << endl;
+		cout << "mpx" << i << ":";
+		cout << mpx[i] << endl;
 	}
 	for (int i = 0; i < n1; i++) {
-	cout << "px" << i << ":";
-	cout << px[i] << endl;
+		cout << "px" << i << ":";
+		cout << px[i] << endl;
 	}*/
 
 
-	//calcurate y->x
+	//calcurate y->x 101, 111
 	double xte = 0.0;
-	for (int i = 0; i < n1; i++) {
-		for (int j = 0; j < n1; j++) {
-			for (int k = 0; k < n1; k++) {
-				int index3 = n2 * i + n1 * j + k;
-				int index_xx = n1 * i + j;
-				int index_xy = n1 * j + k;
-				int index_x = j;
+	//for (int i = 0; i < n1; i++) {
+	int i = 1;
+	int k = 1;
+	for (int j = 0; j < n1; j++) {
+		//for (int k = 0; k < n1; k++) {
+		int index3 = n2 * i + n1 * j + k;
+		int index_xx = n1 * i + j;
+		int index_xy = n1 * j + k;
+		int index_x = j;
 
-				if (mp3x[index3] != 0 && px[index_x] != 0 && mpxy[index_xy] != 0 && mpx[index_xx] != 0)
-				{
-					double numerator = (double)mp3x[index3] * (double)px[index_x];
-					double denominator = (double)mpxy[index_xy] * (double)mpx[index_xx];
-					double nd = numerator / denominator;
-					if (nd != 0) {
-						xte = xte + ((double)mp3x[index3] / (contents.size() - 1)) * log10(nd);
-					}
-				}
+		if (mp3x[index3] != 0 && px[index_x] != 0 && mpxy[index_xy] != 0 && mpx[index_xx] != 0)
+		{
+			double numerator = (double)mp3x[index3] * (double)px[index_x];
+			double denominator = (double)mpxy[index_xy] * (double)mpx[index_xx];
+			double nd = numerator / denominator;
+			if (nd != 0) {
+				xte = xte + ((double)mp3x[index3] / (contents.size() - 1)) * log10(nd);
 			}
 		}
+		//}
 	}
+	//}
 
 	// free
 	delete[] mp3x;

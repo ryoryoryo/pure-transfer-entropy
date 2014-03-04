@@ -10,9 +10,9 @@
 
 using namespace std;
 
-char inputDir[] = "B:\\transfer-entropy\\te\\real_experiment\\ver2.0\\ver2.0.3\\ver2.0.3.3.2\\time-series\\between-user-tweet-topics\\*";
+char inputDir[] = "B:\\transfer-entropy\\te\\real_experiment\\ver2.0\\ver2.0.4\\ver2.0.4.0\\time-series\\between-user-tweet-topics-TDR\\*";
 
-string outputDir = "B:/transfer-entropy/te/real_experiment/ver2.0/ver2.0.3/ver2.0.3.3.2/te-result/result/";
+string outputDir = "B:/transfer-entropy/te/real_experiment/ver2.0/ver2.0.4/ver2.0.4.0/te-result/result/";
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -50,14 +50,19 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 
 		// calcurate
-		if (influencer == "aipocom") {
+		if (influencer == "TDR_PR") {
 			// file contents
 			vector<string> contents = readContentsXYZ(inputFilePath);
 
+
 			if (contents.size() > 0) {
+				double te = 0.0;
 				for (int i = 0; i < PATTERN_NUM; i++) {
-					resultTTE[i].append(influencer + "\t" + receiver + "\t" + doubleToString(tteMultiXYZ(contents, i)) + "\n");
+					double tte = tteMultiXYZ(contents, i);
+					resultTTE[i].append(influencer + "\t" + receiver + "\t" + doubleToString(tte) + "\n");
+					te = te + tte;
 				}
+				resultTE.append(influencer + "\t" + receiver + "\t" + doubleToString(te) + "\n");
 			}
 			else {
 				resultTE.append(influencer + "\t" + receiver + "\tNULL\n");
