@@ -469,7 +469,7 @@ double tteMultiXYZ(vector<string> contents, int type)
 				string valueX = line.substr(0, p);
 				int flagX = 1;
 				while ((px = valueX.find(",")) != valueX.npos){
-					if (valueX.substr(0, px).substr(0, px) == intToString(type)) {
+					if (valueX.substr(0, px) == intToString(type)) {
 						xi = 1;
 						flagX = 0;
 						break;
@@ -533,6 +533,8 @@ double tteMultiXYZ(vector<string> contents, int type)
 			line = line.substr(p + 1);
 			count = count + 1;
 		}
+
+
 		if (i == contents.size() - 1) {
 			mpxy[n1 * tmp + yi] = mpxy[n1 * tmp + yi] + 1;
 		}
@@ -551,29 +553,31 @@ double tteMultiXYZ(vector<string> contents, int type)
 	}
 
 	/*//check
-	for (int i = 0; i < n3; i++) {
-		cout << "mp3x" << i << ":";
-		cout << mp3x[i] << endl;
-	}
-	for (int i = 0; i < n2; i++) {
-		cout << "mpxy" << i << ":";
-		cout << mpxy[i] << endl;
-	}
-	for (int i = 0; i < n2; i++) {
-		cout << "mpx" << i << ":";
-		cout << mpx[i] << endl;
-	}
-	for (int i = 0; i < n1; i++) {
-		cout << "px" << i << ":";
-		cout << px[i] << endl;
+	if (type == 58) {
+		for (int i = 0; i < n3; i++) {
+			cout << "mp3x" << i << ":";
+			cout << mp3x[i] << endl;
+		}
+		for (int i = 0; i < n2; i++) {
+			cout << "mpxy" << i << ":";
+			cout << mpxy[i] << endl;
+		}
+		for (int i = 0; i < n2; i++) {
+			cout << "mpx" << i << ":";
+			cout << mpx[i] << endl;
+		}
+		for (int i = 0; i < n1; i++) {
+			cout << "px" << i << ":";
+			cout << px[i] << endl;
+		}
+		cout << "stop" << endl;
 	}*/
-
 
 	//calcurate y->x 101, 111
 	double xte = 0.0;
 	//for (int i = 0; i < n1; i++) {
-	int i = 1;
-	int k = 1;
+	int i = 1;//z
+	int k = 1;//y
 	for (int j = 0; j < n1; j++) {
 		//for (int k = 0; k < n1; k++) {
 		int index3 = n2 * i + n1 * j + k;

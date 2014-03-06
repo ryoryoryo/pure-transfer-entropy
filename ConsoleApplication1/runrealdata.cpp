@@ -10,9 +10,11 @@
 
 using namespace std;
 
-char inputDir[] = "B:\\transfer-entropy\\te\\real_experiment\\ver2.0\\ver2.0.4\\ver2.0.4.0\\time-series\\between-user-tweet-topics-TDR\\*";
+char inputDir[] = "B:\\transfer-entropy\\te\\real_experiment\\ver2.0\\ver2.0.4\\ver2.0.4.1\\time-series\\between-user-tweet-topics-TDR\\*";
 
-string outputDir = "B:/transfer-entropy/te/real_experiment/ver2.0/ver2.0.4/ver2.0.4.0/te-result/result/";
+string outputDir = "B:/transfer-entropy/te/real_experiment/ver2.0/ver2.0.4/ver2.0.4.1/te-result/result/";
+
+string influenceName = "TDR_PR";
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -50,10 +52,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		}
 
 		// calcurate
-		if (influencer == "TDR_PR") {
+		if (influencer == influenceName || receiver == influenceName) {
 			// file contents
 			vector<string> contents = readContentsXYZ(inputFilePath);
-
 
 			if (contents.size() > 0) {
 				double te = 0.0;
