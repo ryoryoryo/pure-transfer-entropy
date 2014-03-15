@@ -10,9 +10,9 @@
 
 using namespace std;
 
-char inputDir[] = "B:\\transfer-entropy\\te\\real_experiment\\ver2.0\\ver2.0.4\\ver2.0.4.1\\time-series\\between-user-tweet-topics-TDR\\*";
+char inputDir[] = "B:\\transfer-entropy\\te\\real_experiment\\ver2.0\\ver2.0.4\\ver2.0.4.0\\time-series\\between-user-tweet-topics-TDR-te\\*";
 
-string outputDir = "B:/transfer-entropy/te/real_experiment/ver2.0/ver2.0.4/ver2.0.4.1/te-result/result/";
+string outputDir = "B:/transfer-entropy/te/real_experiment/ver2.0/ver2.0.4/ver2.0.4.0/te-result/result-uni/";
 
 string influenceName = "TDR_PR";
 
@@ -61,9 +61,8 @@ int _tmain(int argc, _TCHAR* argv[])
 				for (int i = 0; i < PATTERN_NUM; i++) {
 					double tte = tteMultiXYZ(contents, i);
 					resultTTE[i].append(influencer + "\t" + receiver + "\t" + doubleToString(tte) + "\n");
-					te = te + tte;
 				}
-				resultTE.append(influencer + "\t" + receiver + "\t" + doubleToString(te) + "\n");
+				resultTE.append(influencer + "\t" + receiver + "\t" + doubleToString(pteXYZ(contents, PATTERN_NUM)) + "\n");
 			}
 			else {
 				resultTE.append(influencer + "\t" + receiver + "\tNULL\n");
