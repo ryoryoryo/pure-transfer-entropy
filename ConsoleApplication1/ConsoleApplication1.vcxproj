@@ -89,7 +89,6 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="tte.h" />
-    <ClInclude Include="Z:\miyagi\Dir.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="changetype.cpp" />
